@@ -1,3 +1,3 @@
 # diary_app
 
-#Team: Onni
+Team: Onni
