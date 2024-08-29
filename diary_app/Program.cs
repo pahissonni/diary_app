@@ -64,11 +64,11 @@ namespace DiaryApp
                 Console.WriteLine("Please choose a title for your entry:");
                 string title = Console.ReadLine();
                 Console.WriteLine("\nEnter text your diary entry:");
-                string text = Console.ReadLine();
+                string content = Console.ReadLine();
 
-                DiaryEntry entry = new DiaryEntry(title, text);
+                DiaryEntry entry = new DiaryEntry(title, content);
  
-                writer.WriteLine(entry.Title + ";" + entry.Text + ";" + DateTime.Now);
+                writer.WriteLine(entry.Title + ";" + entry.Content + ";" + DateTime.Now);
                 writer.Close();
                 Console.WriteLine("\nEntry added!\n");
             }
@@ -89,54 +89,86 @@ namespace DiaryApp
             {
                 Console.WriteLine("Please choose the title of the entry you would like to modify:");
                 Console.WriteLine("(Note: If there are multiple entries with the same title, you can choose which one to modify.)");
-
-
                 List();
                 Console.WriteLine("");
                 string title = Console.ReadLine();
-                int counter = 0;
-                int index = 0;
+                int id = Search(title);
 
-                var lines = File.ReadAllLines("diary.txt");
+
+                Console.WriteLine("\nWarning: Modifying will overwrite existing title or content!");
+
+                if (Confirm() == true)
+                {
+                    ModifyEntry(id, title);
+                }
+            }
+
+            void ModifyEntry(int id, string title) { 
+
+                    var lines = File.ReadAllLines("diary.txt");
+                    var tempDiary = new StreamWriter("tempDiary.txt");
+                    while (true)
+                    {
+                        Console.WriteLine("What would you like to modify 't' for the title and 'c' for the content?");
+                        string tOrC = Console.ReadLine();
+
+                        if (tOrC == "t")
+                        {
+                            Console.WriteLine("Please choose a new title: ");
+                            string newTitle = Console.ReadLine();
+                        lines[id] = newTitle + ";" + lines[id].Split(";")[1] + ";" + lines[id].Split(";")[2];
+                            break;
+                        }
+
+                        if (tOrC == "c")
+                        {
+                            Console.WriteLine("Please write new content: ");
+                            string newContent = Console.ReadLine();
+                        lines[id] = lines[id].Split(";")[0] + ";" + newContent + ";" + lines[id].Split(";")[2];
+                        break;
+                        }
+                        Console.WriteLine("Not a valid input, please try again.");
+                    }
 
                 for (int i = 0; i < lines.Length; i++)
                 {
-                    string[] splitted = lines[i].Split(";");
-                    if (splitted[0].Equals(title))
-                    {
-                        Console.WriteLine("\n\n" + splitted[2] + "\n\n" + splitted[0] + "\n" + splitted[1]);
-                        counter++;
-                        index = i;
-                    }
+                    tempDiary.WriteLine(lines[i]);
                 }
-                if (counter <= 1)
-                {
-                   
-                }
-
-
+                    tempDiary.Close();
+                    File.Delete("diary.txt");
+                    File.Move("tempDiary.txt", "diary.txt");
+                
             }
 
-            void Delete()
+                void Delete()
             {
                 Console.WriteLine("Please choose the title of the entry you would like to delete:");
                 Console.WriteLine("(Note: If there are multiple entries with the same title, you can choose which one to delete.)");
-
                 List();
                 Console.WriteLine("");
                 string title = Console.ReadLine();
 
-                Search(title);
+                int id = Search(title);
 
-                if (Search(title) <= 1)
+                if (Confirm() == true)
                 {
-                    Console.WriteLine("You're good!");
-                } else
-                {
-                    Console.WriteLine("\nWarning! Multiple entries with the same title.");
-                    Console.WriteLine("Choose the corresponding ID number you would like to delete.");
-                    int id = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("\nYou chose: " + id + ".");
+                    var lines = File.ReadAllLines("diary.txt");
+                    var tempDiary = new StreamWriter("tempDiary.txt");
+
+                        for (int i = 0; i < lines.Length; i++)
+                    {
+                        if (i != id)
+                        {
+                            tempDiary.WriteLine(lines[i]);
+                        }
+                        if (id == -1 && lines[i].Split(";")[0] != title)
+                        {
+                            tempDiary.WriteLine(lines[i]);
+                        }
+                    }
+                    tempDiary.Close();
+                    File.Delete("diary.txt");
+                    File.Move("tempDiary.txt", "diary.txt");
                 }
             }
 
@@ -157,7 +189,7 @@ namespace DiaryApp
 
             int Search(string title)
             {
-                int index = 0;
+                int id = -1;
                 int counter = 0;
 
                 var lines = File.ReadAllLines("diary.txt");
@@ -171,7 +203,38 @@ namespace DiaryApp
                         counter++;
                     }
                 }
-                return counter;
+                if (counter > 1)
+                {
+                    Console.WriteLine("\nWarning! Multiple entries with the same title.");
+                    Console.WriteLine("Choose the corresponding ID number you would like to interact with.");
+                    id = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("\nYou've chosen: " + id + ".");
+                }
+                return id;
+            }
+
+            bool Confirm()
+            {
+                Console.WriteLine("\nAre you sure?");
+                while (true)
+                {
+                    Console.WriteLine("'y' for YES and 'n' for NO");
+                    string yesOrNo = Console.ReadLine();
+
+                    if (yesOrNo.ToLower() == "y")
+                    {
+                        return true;
+                    }
+                    else if (yesOrNo.ToLower() == "n")
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Input is not valid, please try again.");
+                    }
+                }
+                return false;
             }
         }
     }

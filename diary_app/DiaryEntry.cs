@@ -4,15 +4,15 @@ namespace DiaryEntryNameSpace
 {
     public class DiaryEntry
     {
-        public string Text 
+        public string Content 
         { get; set; }
         public string Title
         { get; set; }
 
-        public DiaryEntry(string input_title, string input_text)
+        public DiaryEntry(string input_title, string input_content)
         {
             Title = input_title;
-            Text = input_text;
+            Content = input_content;
         }
     }
 }
