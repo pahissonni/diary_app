@@ -13,6 +13,8 @@ namespace DiaryApp
         static void Main()
         {
 
+            StreamWriter writer = File.AppendText("diary.txt");
+            writer.Close();
             Console.WriteLine("\nHello! What do you want to do?");
             Console.WriteLine("Please select the corresponding letter and press Enter to continue.\n");
             Console.WriteLine("'a' to Add an entry to the diary\n'r' to Read entries\n" +
@@ -56,7 +58,7 @@ namespace DiaryApp
                         Console.WriteLine("\nInput is not valid, please try again.");
                         break;
                 }
-                Console.WriteLine("\nWaiting for input:");
+                Console.WriteLine("\nWaiting for input (a, r, m, d or q):");
             }
 
             void Add()
@@ -84,9 +86,10 @@ namespace DiaryApp
                 Console.WriteLine("");
                 string title = Console.ReadLine();
                 int id = Search(title);
-                Console.WriteLine("\n\n" + "\n" + lines[id].Split(";")[2] + "\n\n" + lines[id].Split(";")[0] + "\n" + lines[id].Split(";")[1]);
-
-
+                if (id >= 0)
+                {
+                    Console.WriteLine("\n\n" + "\n" + lines[id].Split(";")[2] + "\n\n" + lines[id].Split(";")[0] + "\n" + lines[id].Split(";")[1]);
+                }
             }
 
             void Modify()
@@ -103,11 +106,11 @@ namespace DiaryApp
 
                 if (Confirm() == true)
                 {
-                    ModifyEntry(id, title);
+                    ModifyEntry(id);
                 }
             }
 
-            void ModifyEntry(int id, string title) { 
+            void ModifyEntry(int id) { 
 
                     var lines = File.ReadAllLines("diary.txt");
                     var tempDiary = new StreamWriter("tempDiary.txt");
@@ -120,7 +123,7 @@ namespace DiaryApp
                         {
                             Console.WriteLine("Please choose a new title: ");
                             string newTitle = Console.ReadLine();
-                        lines[id] = newTitle + ";" + lines[id].Split(";")[1] + ";" + lines[id].Split(";")[2];
+                            lines[id] = newTitle + ";" + lines[id].Split(";")[1] + ";" + lines[id].Split(";")[2];
                             break;
                         }
 
@@ -138,9 +141,10 @@ namespace DiaryApp
                 {
                     tempDiary.WriteLine(lines[i]);
                 }
-                    tempDiary.Close();
-                    File.Delete("diary.txt");
-                    File.Move("tempDiary.txt", "diary.txt");
+                tempDiary.Close();
+                File.Delete("diary.txt");
+                File.Move("tempDiary.txt", "diary.txt");
+                Console.WriteLine("\nModified!");
                 
             }
 
@@ -173,6 +177,7 @@ namespace DiaryApp
                     tempDiary.Close();
                     File.Delete("diary.txt");
                     File.Move("tempDiary.txt", "diary.txt");
+                    Console.WriteLine("\nDeleted!");
                 }
             }
 
@@ -203,16 +208,24 @@ namespace DiaryApp
                     string[] splitted = lines[i].Split(";");
                     if (splitted[0].Equals(title))
                     {
-                        Console.WriteLine("\n\n" + "ID number:" + i + "\n" + splitted[2] + "\n\n" + splitted[0] + "\n" + splitted[1]);
+                        Console.WriteLine("\n\n" + "ID number:" + i + "\n" + splitted[2] + "\n\n" + splitted[0] + "\n");
                         counter++;
+                        id = i;
                     }
                 }
                 if (counter > 1)
                 {
                     Console.WriteLine("\nWarning! Multiple entries with the same title.");
                     Console.WriteLine("Choose the corresponding ID number you would like to interact with.");
-                    id = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("\nYou've chosen: " + id + ".");
+                    if (int.TryParse(Console.ReadLine(), out int chosenId) && chosenId >= 0 && chosenId < lines.Length)
+                    {
+                        Console.WriteLine("\nYou've chosen: " + chosenId + ".");
+                        id = chosenId;
+                    }
+                }
+                if (counter == 0)
+                {
+                    Console.WriteLine("\nEntry not found");
                 }
                 return id;
             }
