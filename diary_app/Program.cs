@@ -3,6 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 using DiaryEntryNameSpace;
 using System.IO;
 using System.Reflection;
+using System.Diagnostics.Metrics;
 
 
 namespace DiaryApp
@@ -79,10 +80,13 @@ namespace DiaryApp
                 Console.WriteLine("(Note: If there are multiple entries with the same title, each one will be printed.)");
 
                 List();
-
+                var lines = File.ReadAllLines("diary.txt");
                 Console.WriteLine("");
                 string title = Console.ReadLine();
-                Search(title);
+                int id = Search(title);
+                Console.WriteLine("\n\n" + "\n" + lines[id].Split(";")[2] + "\n\n" + lines[id].Split(";")[0] + "\n" + lines[id].Split(";")[1]);
+
+
             }
 
             void Modify()
