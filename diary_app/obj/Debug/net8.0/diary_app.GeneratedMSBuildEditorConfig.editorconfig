@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = diary_app
-build_property.ProjectDir = /Users/onni/Projects/diary_app/diary_app/
+build_property.ProjectDir = C:\Users\Onni Sivén\source\repos\diary_app\diary_app\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

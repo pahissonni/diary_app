@@ -1,13 +1,9 @@
-﻿using System;
-
-namespace DiaryEntryNameSpace
+﻿namespace DiaryEntryNameSpace
 {
     public class DiaryEntry
     {
-        public string Content 
-        { get; set; }
-        public string Title
-        { get; set; }
+        public string Content { get; set; } = "Default Title (no title entered by the user)";
+        public string Title { get; set; } = "Default Content (no text entered by the user)";
 
         public DiaryEntry(string input_title, string input_content)
         {

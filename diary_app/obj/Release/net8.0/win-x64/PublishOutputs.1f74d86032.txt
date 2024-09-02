@@ -1,0 +1,2 @@
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\bin\Release\net8.0\publish\win-x64\diary_app.pdb
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\bin\Release\net8.0\publish\win-x64\diary_app.exe

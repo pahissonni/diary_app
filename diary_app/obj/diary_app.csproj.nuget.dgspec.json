@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/onni/Projects/diary_app/diary_app/diary_app.csproj": {}
+    "C:\\Users\\Onni Sivén\\source\\repos\\diary_app\\diary_app\\diary_app.csproj": {}
   },
   "projects": {
-    "/Users/onni/Projects/diary_app/diary_app/diary_app.csproj": {
+    "C:\\Users\\Onni Sivén\\source\\repos\\diary_app\\diary_app\\diary_app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/onni/Projects/diary_app/diary_app/diary_app.csproj",
+        "projectUniqueName": "C:\\Users\\Onni Sivén\\source\\repos\\diary_app\\diary_app\\diary_app.csproj",
         "projectName": "diary_app",
-        "projectPath": "/Users/onni/Projects/diary_app/diary_app/diary_app.csproj",
-        "packagesPath": "/Users/onni/.nuget/packages/",
-        "outputPath": "/Users/onni/Projects/diary_app/diary_app/obj/",
+        "projectPath": "C:\\Users\\Onni Sivén\\source\\repos\\diary_app\\diary_app\\diary_app.csproj",
+        "packagesPath": "C:\\Users\\Onni Sivén\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Onni Sivén\\source\\repos\\diary_app\\diary_app\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/onni/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Onni Sivén\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -53,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

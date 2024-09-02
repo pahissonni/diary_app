@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "I5oWqQkcCwA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Onni Sivén\\source\\repos\\diary_app\\diary_app\\diary_app.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Onni Sivén\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.8\\microsoft.net.illink.tasks.8.0.8.nupkg.sha512",
+    "C:\\Users\\Onni Sivén\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.8\\microsoft.netcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Onni Sivén\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Onni Sivén\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.8\\microsoft.aspnetcore.app.runtime.win-x64.8.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

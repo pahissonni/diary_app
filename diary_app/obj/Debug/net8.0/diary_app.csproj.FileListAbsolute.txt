@@ -28,3 +28,18 @@ C:/Users/Onni Sivén/source/repos/diary_app/diary_app/obj/Debug/net8.0/ref/diary
 /Users/onni/Projects/diary_app/diary_app/obj/Debug/net8.0/diary_app.pdb
 /Users/onni/Projects/diary_app/diary_app/obj/Debug/net8.0/diary_app.genruntimeconfig.cache
 /Users/onni/Projects/diary_app/diary_app/obj/Debug/net8.0/ref/diary_app.dll
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\bin\Debug\net8.0\diary_app.exe
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\bin\Debug\net8.0\diary_app.deps.json
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\bin\Debug\net8.0\diary_app.runtimeconfig.json
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\bin\Debug\net8.0\diary_app.dll
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\bin\Debug\net8.0\diary_app.pdb
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.AssemblyInfoInputs.cache
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.AssemblyInfo.cs
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.csproj.CoreCompileInputs.cache
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.sourcelink.json
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.dll
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\refint\diary_app.dll
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.pdb
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\diary_app.genruntimeconfig.cache
+C:\Users\Onni Sivén\source\repos\diary_app\diary_app\obj\Debug\net8.0\ref\diary_app.dll
