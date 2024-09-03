@@ -8,7 +8,9 @@ namespace DiaryApp
 
         static void Main()
         {
-
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
             StreamWriter writer = File.AppendText("diary.txt");
             writer.Close();
             Console.WriteLine("\nHello! What do you want to do?");
@@ -50,6 +52,10 @@ namespace DiaryApp
                         Environment.Exit(0);
                         break;
 
+                    case "l":
+                        LightsOut();
+                        break;
+
                     default:
                         Console.WriteLine("\nInput is not valid, please try again.");
                         break;
@@ -81,7 +87,7 @@ namespace DiaryApp
                 if (List() == true)
                 {
                     Console.WriteLine("Please choose the title of the entry you would like to read:");
-                    Console.WriteLine("(Note: If there are multiple entries with the same title, each one will be printed.)");
+                    Console.WriteLine("(Note: If there are multiple entries with the same title, each title will be printed.)");
                     var lines = File.ReadAllLines("diary.txt");
                     Console.WriteLine("");
                     string? title = Console.ReadLine();
@@ -278,6 +284,38 @@ namespace DiaryApp
                 }
                 return false;
             }
+
+
+
+            void LightsOut()
+            {
+
+                Console.WriteLine("Choose 'e' to enable, 'd' to disable dark mode.");
+                while (true)
+                {
+                    string input = Console.ReadLine();
+                    if (input == "e")
+                    {
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Clear();
+                        break;
+                    }
+                    else if (input == "d")
+                    {
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Clear();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input");
+                    }
+                }
+            }
+
+
         }
     }
 }
